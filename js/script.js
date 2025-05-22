@@ -107,6 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
     countdownEl.textContent = "";
     questionSection.style.display = "block";
 
+    setTimeout(() => {
+  questionSection.scrollIntoView({ behavior: 'smooth' });
+}, 100); // ← 0.1秒だけ待ってスクロール
+
     // スクロール調整（PCのみ実行）
 //if (window.innerWidth > 768) {
  // const offset = 15;
