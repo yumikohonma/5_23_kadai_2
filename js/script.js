@@ -119,7 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //const targetY = rect.top + scrollTop + offset;
   //window.scrollTo({ top: targetY, behavior: 'smooth' });
 //}
-questionSection.scrollIntoView({ behavior: 'smooth' });
+//questionSection.scrollIntoView({ behavior: 'smooth' });
+questionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     // 7秒後に5秒カウントダウン開始
     setTimeout(() => {
