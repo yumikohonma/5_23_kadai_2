@@ -118,7 +118,7 @@ body {
 
 
 .name-box {
-  font-size: 5vw;
+  font-size: 6vw;
   font-weight: bold;
   color: rgb(254, 254, 253);
   margin-top: 20px;
@@ -128,7 +128,7 @@ body {
 }
 
 #selectedQuestion {
-  font-size: 5vw;
+  font-size: 6vw;
   font-weight: bold;
   color: rgb(10, 0, 8);
   margin-bottom: 20px;
