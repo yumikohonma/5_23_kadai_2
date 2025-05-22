@@ -67,19 +67,37 @@ body {
 
 
 /* 背景をビール色にしてみた */
+
+/* 質問セクション */
 #question {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   text-align: center;
-  min-height: 100dvh; /* ← 長さが変わるはず */
+  min-height: 100dvh;
+  padding: 60px 20px;
+  background-color: orange;
+  position: relative;  /* ← 追加：カウントダウンの絶対位置基準に必要 */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+
+/*#question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  min-height: 100dvh;  ← 長さが変わるはず 
   padding: 60px 20px;
   background-color: orange;
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
-}
+}*/
+/* 質問のスタイル */
 
 /* 泡のコンテナ */
 .bubble-container {
@@ -134,13 +152,27 @@ body {
   margin-bottom: 20px;
 }
 
-#countdown {
+/*#countdown {
   font-size: 15vw;
   font-weight: bold;
   color: red;
   margin-top: 0;
-  transform: translateY(-30px); /* ← ここがポイント！ */
+  transform: translateY(-30px); /* ← ここがポイント！ 
+}*/
+
+/* カウントダウンを中央に重ねて表示する */
+#countdown {
+  position: absolute;       /* ← 追加：重ねるために必要 */
+  top: 20%;                 /* ← 位置調整：質問の上部に表示 */
+  left: 50%;
+  transform: translate(-50%, -50%); /* ← 中央揃え */
+  font-size: 15vw;
+  font-weight: bold;
+  color: red;
+  z-index: 10;              /* ← 質問より前に表示させる */
+  margin-top: 0;            /* ← 不要な余白を削除 */
 }
+
 
 /*かわいいリストにする*/
 #logArea {
