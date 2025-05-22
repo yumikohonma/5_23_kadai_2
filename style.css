@@ -74,9 +74,10 @@ body {
   justify-content: center;
   text-align: center;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   background-color: #feaf11; 
-  padding: 0;
+  padding: 60px 20px;
+  box-sizing: border-box;
 }
 
 /* 泡のコンテナ */
