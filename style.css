@@ -66,17 +66,18 @@ body {
 }*/
 
 
-/* 背景を薄いビール色に変更 */
+/* 背景をビール色にしてみた */
 #question {
-   display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
-  width: 100vw;
-  height: auto;
-  background-color: #feaf11; 
+  min-height: 100dvh; /* ← 長さが変わるはず */
   padding: 60px 20px;
+  background-color: orange;
+  position: relative;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
