@@ -108,13 +108,14 @@ document.addEventListener("DOMContentLoaded", () => {
     questionSection.style.display = "block";
 
     // スクロール調整（PCのみ実行）
-if (window.innerWidth > 768) {
-  const offset = 15;
-  const rect = questionSection.getBoundingClientRect();
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const targetY = rect.top + scrollTop + offset;
-  window.scrollTo({ top: targetY, behavior: 'smooth' });
-}
+//if (window.innerWidth > 768) {
+ // const offset = 15;
+  //const rect = questionSection.getBoundingClientRect();
+  //const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  //const targetY = rect.top + scrollTop + offset;
+  //window.scrollTo({ top: targetY, behavior: 'smooth' });
+//}
+questionSection.scrollIntoView({ behavior: 'smooth' });
 
     // 7秒後に5秒カウントダウン開始
     setTimeout(() => {
