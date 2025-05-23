@@ -78,7 +78,7 @@ body {
   min-height: 100dvh;
   padding: 60px 20px;
   background-color: orange;
-  position: relative;  /* ← 追加：カウントダウンの絶対位置基準に必要 */
+  position: relative;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -249,17 +249,18 @@ body {
   }
 }
 
+
 #showLog {
   font-size: 18px;
   padding: 10px 24px;
-  background-color: #ffe4ec;        /* 柔らかいピンクに修正 */
+  background-color: #ffe4ec;
   border: 1px solid #f7a5c1;
   border-radius: 30px;
   color: #555;
   cursor: pointer;
   display: none;
-  margin-top: 40px;                 /* autoより実用的 */
-  align-self: center;
+  margin-top: 40px;
+  align-self: center; /* 横方向中央に揃える */
   transition: background-color 0.3s;
 }
 
