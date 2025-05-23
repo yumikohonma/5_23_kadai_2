@@ -176,6 +176,7 @@ body {
 
 /*かわいいリストにする*/
 #logArea {
+  display: none; 
   background-color: #fff0f5; /* ピンク系背景 */
   padding: 20px;
   border-radius: 20px;
@@ -265,5 +266,46 @@ body {
 }
 
 #showLog:hover {
+  background-color: #fce0eb;
+}
+
+#backToEntry {
+  font-size: 18px;
+  padding: 10px 24px;
+  background-color: #ffe4ec;
+  border: 1px solid #f7a5c1;
+  border-radius: 30px;
+  color: #555;
+  cursor: pointer;
+  display: none; /* 初期状態では非表示にしておく */
+  margin-top: 40px;
+  align-self: center;
+  transition: background-color 0.3s;
+}
+
+#backToEntry:hover {
+  background-color: #fce0eb;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 16px; /* ボタンの間のすき間 */
+  justify-content: center; /* 横方向中央寄せ */
+  margin-top: 40px;
+  flex-wrap: wrap; /* スマホで折り返す場合に対応 */
+}
+
+.button-wrapper button {
+  font-size: 18px;
+  padding: 10px 24px;
+  background-color: #ffe4ec;
+  border: 1px solid #f7a5c1;
+  border-radius: 30px;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-wrapper button:hover {
   background-color: #fce0eb;
 }

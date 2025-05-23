@@ -23,6 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const logArea = document.getElementById("logArea");
     // 泡を自動生成
   const bubbleContainer = document.querySelector(".bubble-container");
+ 
+  const backToEntryBtn = document.getElementById("backToEntry");
+  const entrySection = document.getElementById("entry");
+
+// 「カンパイに戻る」ボタンの処理
+backToEntryBtn.addEventListener("click", () => {
+  entrySection.scrollIntoView({ behavior: 'smooth' });
+});
+
 
   function createBubble() {
     const bubble = document.createElement("div");
@@ -79,58 +88,64 @@ document.addEventListener("DOMContentLoaded", () => {
   nameInput.addEventListener("keydown", e => e.key === "Enter" && addName());
 
   // ログ表示処理
+  //showLogBtn.addEventListener("click", () => {
+    //logArea.style.display = "block";
+    //logArea.innerHTML = `
+     // <h3>今日の思い出</h3>
+      //<ul>${log.map(item => `<li>${item}</li>`).join("")}</ul>
+    //`;
+  //});
+
+  // ログ表示処理
   showLogBtn.addEventListener("click", () => {
-    logArea.style.display = "block";
-    logArea.innerHTML = `
-      <h3>今日の思い出</h3>
-      <ul>${log.map(item => `<li>${item}</li>`).join("")}</ul>
-    `;
-  });
+  logArea.style.display = "block";
+  logArea.innerHTML = `
+    <h3>今日の思い出</h3>
+    <ul>${log.map(item => `<li>${item}</li>`).join("")}</ul>
+  `;
+
+  // ここでスクロール
+  logArea.scrollIntoView({ behavior: 'smooth' });
+});
+
 
   // スタート処理
-  startBtn.addEventListener("click", () => {
-    if (names.length === 0) {
-      alert("名前を登録してください！");
-      return;
-    }
+ // スタート処理
+startBtn.addEventListener("click", () => {
+  if (names.length === 0) {
+    alert("名前を登録してください！");
+    return;
+  }
 
-    const selected = getRandomItem(names);
-    const question = getRandomItem(questions);
+  const selected = getRandomItem(names);
+  const question = getRandomItem(questions);
 
-    // ログ保存＆ボタン表示
-    log.push(`${selected} さん：${question}`);
-    showLogBtn.style.display = "block";
+  // ログ保存
+  log.push(`${selected} さん：${question}`);
 
-    // 表示処理
-    selectedName.textContent = `${selected} さんに質問です！`;
-    selectedQuestion.textContent = question;
-    countdownEl.textContent = "";
-    questionSection.style.display = "block";
+  // ログがあればボタン表示（← ここがポイント）
+  showLogBtn.style.display = "block";
+  backToEntryBtn.style.display = "block";
+  
 
-    setTimeout(() => {
-  questionSection.scrollIntoView({ behavior: 'smooth' });
-}, 100); // ← 0.1秒だけ待ってスクロール
+  // 表示処理
+  selectedName.textContent = `${selected} さんに質問です！`;
+  selectedQuestion.textContent = question;
+  countdownEl.textContent = "";
+  questionSection.style.display = "block";
 
-    // スクロール調整（PCのみ実行）
-//if (window.innerWidth > 768) {
- // const offset = 15;
-  //const rect = questionSection.getBoundingClientRect();
-  //const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  //const targetY = rect.top + scrollTop + offset;
-  //window.scrollTo({ top: targetY, behavior: 'smooth' });
-//}
-//questionSection.scrollIntoView({ behavior: 'smooth' });
-questionSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => {
+    questionSection.scrollIntoView({ behavior: 'smooth' });
+  }, 100);
 
-    // 7秒後に5秒カウントダウン開始
-    setTimeout(() => {
-      let count = 5;
-      countdownEl.textContent = count;
-      const timer = setInterval(() => {
-        count--;
-        countdownEl.textContent = count > 0 ? count : "";
-        if (count <= 0) clearInterval(timer);
-      }, 1000);
-    }, 7000);
-  });
+  setTimeout(() => {
+    let count = 5;
+    countdownEl.textContent = count;
+    const timer = setInterval(() => {
+      count--;
+      countdownEl.textContent = count > 0 ? count : "";
+      if (count <= 0) clearInterval(timer);
+    }, 1000);
+  }, 7000);
+});
 });
