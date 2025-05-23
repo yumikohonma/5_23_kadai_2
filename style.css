@@ -279,7 +279,6 @@ body {
   cursor: pointer;
   display: none; /* 初期状態では非表示にしておく */
   margin-top: 40px;
-  align-self: center;
   transition: background-color 0.3s;
 }
 
